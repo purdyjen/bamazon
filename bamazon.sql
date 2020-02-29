@@ -17,7 +17,7 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("ASICS Women's GEL Venture 5 Running Shoe", "Shoes", 51.95, 100);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Dyson DC65 Animal Upright Vacuum, Purple", "Appliances", 594.00, 8);
+VALUES ("Dyson DC65 Animal Upright Vacuum, Purple", "Appliances", 594.99, 8);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Cuisinart Cast Iron Casserole, Mint Green, 5.5 Quart", "Home & Kitchen", 54.99, 20);
@@ -32,7 +32,7 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Kenneth Cole Reaction Keystone 1680d Polyester Dual Compartment 17\" Laptop Business Portfolio, Black", "Luggage & Travel", 51.78, 17);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUES ("Rocketbook Smart Reusable Notebook", "Office Products", 27.20, 23);
+VALUES ("Rocketbook Smart Reusable Notebook", "Office Products", 27.99, 23);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("Gotideal 12 metallic marker pens", "Arts, Crafts, & Sewing", 9.99, 300);

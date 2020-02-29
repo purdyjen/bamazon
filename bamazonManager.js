@@ -120,8 +120,9 @@ function displayAllItems() {
                 );
               }
           );
-    });
-  });
+    }); //end query
+    manage();
+  }); //end then
 }
 
   function addProduct() {
@@ -163,10 +164,10 @@ function displayAllItems() {
                 console.log(
                   "Successfully added Product.".green.underline
                 );
-                manage();
               }
-        );
-    });
+        ); //end query
+        manage();
+    }); //end then
     
   }
   function manage(){

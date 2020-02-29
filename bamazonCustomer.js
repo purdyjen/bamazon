@@ -33,7 +33,7 @@ function displayItems() {
           "\nDepartment Name: ".cyan +
           res[i].department_name +
           "\nPrice: ".cyan +
-          res[i].price +
+          "$" + res[i].price +
           divider
       );
     }
@@ -69,14 +69,14 @@ function chooseItem() {
           }
         }
 
-        if (chosenProduct.stock_quantity > parseInt(answer.quantity)) {
+        if (chosenProduct.stock_quantity > parseFloat(answer.quantity)) {
           var query = "UPDATE products SET ? WHERE ?";
           connection.query(
             query,
             [
               {
                 stock_quantity:
-                  chosenProduct.stock_quantity - parseInt(answer.quantity)
+                  chosenProduct.stock_quantity - parseFloat(answer.quantity)
               },
               {
                 item_id: chosenProduct.item_id
@@ -84,7 +84,7 @@ function chooseItem() {
             ],
             function(error) {
               if (error) throw error;
-              var totalPrice = parseInt(answer.quantity) * chosenProduct.price;
+              var totalPrice = parseFloat(answer.quantity) * parseFloat(chosenProduct.price);
               console.log(
                 "Thank you for your business! Your total is " +
                   "$" + totalPrice
@@ -104,10 +104,6 @@ function chooseItem() {
             function(error) {
               if (error) throw error;
               var totalPrice = parseInt(answer.quantity) * chosenProduct.price;
-              console.log(
-                "Thank you for your business! Your total is " +
-                  "$" + totalPrice
-              );
             }
           );
             }
@@ -119,5 +115,6 @@ function chooseItem() {
           
         }
       }); //end connection query
+      displayItems();
     }); //end then response
 } //end chooseItem function

@@ -44,7 +44,7 @@ function viewSales() {
   });
 
   var query =
-    "SELECT departments.department_id, departments.department_name, departments.over_head_costs, products.product_sales, over_head_costs - product_sales AS total_profit FROM departments INNER JOIN products ON departments.department_name=products.department_name;";
+    "SELECT departments.department_id, departments.department_name, departments.over_head_costs, products.product_sales, (product_sales - over_head_costs) AS total_profit FROM departments LEFT JOIN products ON departments.department_name=products.department_name GROUP BY department_name;";
   connection.query(query, function(err, res) {
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
