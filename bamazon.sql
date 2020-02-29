@@ -39,3 +39,37 @@ VALUES ("Gotideal 12 metallic marker pens", "Arts, Crafts, & Sewing", 9.99, 300)
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUES ("ARTDOT Diamond Painting Storage Container", "Arts, Crafts, & Sewing", 13.99, 37);
+
+CREATE TABLE departments (
+  department_id INT AUTO_INCREMENT,
+  department_name VARCHAR(100) NULL,
+  over_head_costs DECIMAL(10,2) NULL,
+  PRIMARY KEY (department_id)
+);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Shoes", 200);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Appliances", 500);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Home & Kitchen", 300);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Electronics", 400);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Books", 150);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Luggage & Travel", 50);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Office Products", 20);
+
+INSERT INTO departments (department_name, over_head_costs)
+VALUES ("Arts, Crafts, & Sewing", 100);
+
+ALTER TABLE products
+	ADD product_sales DECIMAL(10,2) NULL;

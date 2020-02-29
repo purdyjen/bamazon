@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var colors = require("colors");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -20,19 +21,20 @@ function displayItems() {
   var query = "SELECT * FROM products";
 
   connection.query(query, function(err, res) {
-    var divider = "\n---------------------------------------\n\n";
+    var divider = "\n\n---------------------------------------\n".magenta;
     if (err) throw err;
     for (var i = 0; i < res.length; i++) {
       console.log(
-        divider +
-          "Product ID: " +
+        
+          "Product ID: ".cyan +
           res[i].item_id +
-          "\nProduct Name: " +
+          "\nProduct Name: ".cyan +
           res[i].product_name +
-          "\nDepartment Name: " +
+          "\nDepartment Name: ".cyan +
           res[i].department_name +
-          "\nPrice: " +
-          res[i].price
+          "\nPrice: ".cyan +
+          res[i].price +
+          divider
       );
     }
 
@@ -82,21 +84,39 @@ function chooseItem() {
             ],
             function(error) {
               if (error) throw error;
+              var totalPrice = parseInt(answer.quantity) * chosenProduct.price;
               console.log(
                 "Thank you for your business! Your total is " +
-                  "$" +
-                  parseInt(answer.quantity) * chosenProduct.price
+                  "$" + totalPrice
               );
+              var query = "UPDATE products SET ? WHERE ?";
+          connection.query(
+            query,
+            [
+              {
+                product_sales:
+                  chosenProduct.product_sales + totalPrice
+              },
+              {
+                item_id: chosenProduct.item_id
+              }
+            ],
+            function(error) {
+              if (error) throw error;
+              var totalPrice = parseInt(answer.quantity) * chosenProduct.price;
+              console.log(
+                "Thank you for your business! Your total is " +
+                  "$" + totalPrice
+              );
+            }
+          );
             }
           );
         } else {
           console.log(
             "Sorry! We don't have enough of that product in stock to fulfill your order."
           );
-          console.log(chosenProduct.stock_quantity);
-          console.log(answer);
-          console.log(answer.quantity);
-          console.log(answer.product);
+          
         }
       }); //end connection query
     }); //end then response
