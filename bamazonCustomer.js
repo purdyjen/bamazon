@@ -37,7 +37,6 @@ function displayItems() {
           divider
       );
     }
-
     chooseItem();
   });
 } //end display function
@@ -89,6 +88,7 @@ function chooseItem() {
                 "Thank you for your business! Your total is " +
                   "$" + totalPrice
               );
+              chooseItem();
               var query = "UPDATE products SET ? WHERE ?";
           connection.query(
             query,
@@ -115,6 +115,6 @@ function chooseItem() {
           
         }
       }); //end connection query
-      displayItems();
+
     }); //end then response
 } //end chooseItem function
