@@ -9,9 +9,9 @@ The app will check to make sure there are enough of the item in stock to meet th
     - If there are not, the order will not go through and the customer will be alerted.
 
 ![Screenshot Item Display]
-(images/01-Customer-Item-Display.png)
+(./images/01-Customer-Item-Display.png)
 ![Screenshot Order]
-(images/02-Customer-Order.png)
+(./images/02-Customer-Order.png)
 
 ## Bamazon Manager
 
