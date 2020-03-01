@@ -8,6 +8,11 @@ The app will check to make sure there are enough of the item in stock to meet th
     - If there are, the order will go through and the total price will be displayed. 
     - If there are not, the order will not go through and the customer will be alerted.
 
+![Screenshot Item Display]
+(images/01-Customer-Item-Display.png)
+![Screenshot Order]
+(images/02-Customer-Order.png)
+
 ## Bamazon Manager
 
 - A node.js app for managers with the following options:
